@@ -11,7 +11,7 @@ class LoginPage(BasePage):
 
     @allure.step('Проверка что открылась форма авторизации')
     def check_login_head(self):
-        self.find_element(LoginPageLocators.LOGIN_HEAD)
+        assert self.find_element(LoginPageLocators.LOGIN_HEAD).is_displayed()
 
     @allure.step('Авторизация на сайте')
     def login(self, email, password):

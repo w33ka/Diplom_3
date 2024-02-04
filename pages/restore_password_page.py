@@ -8,7 +8,7 @@ from helpers import fake
 class RestorePasswordPage(BasePage):
     @allure.step('Проверка что открылась страница "Восстановление пароля"')
     def check_password_recovery_head(self):
-        return self.find_element(RestorePasswordPageLocators.PASSWORD_RECOVERY_HEAD).text
+        assert self.find_element(RestorePasswordPageLocators.PASSWORD_RECOVERY_HEAD).text == 'Восстановление пароля'
 
     @allure.step('Заполнение поля "Email"')
     def fill_email(self):
@@ -21,7 +21,7 @@ class RestorePasswordPage(BasePage):
 
     @allure.step('Проверка что кнопка "Показать/скрыть пароль" отображается')
     def check_show_password_button(self):
-        self.find_element(RestorePasswordPageLocators.SHOW_PASSWORD_BUTTON)
+        assert self.find_element(RestorePasswordPageLocators.SHOW_PASSWORD_BUTTON).is_displayed()
 
     @allure.step('Нажатие на кнопку "Показать/скрыть пароль"')
     def click_show_password_button(self):
@@ -29,7 +29,7 @@ class RestorePasswordPage(BasePage):
 
     @allure.step('Проверка что поле "Пароль" активно')
     def check_active_field_password(self):
-        self.find_element(RestorePasswordPageLocators.PASSWORD_FIELD_ACTIVE)
+        assert self.find_element(RestorePasswordPageLocators.PASSWORD_FIELD_ACTIVE).is_displayed()
 
 
 

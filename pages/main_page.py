@@ -15,7 +15,7 @@ class MainPage(BasePage):
 
     @allure.step('Проверка что отображается раздел "Конструктор"')
     def check_constructor_section(self):
-        self.find_element(MainPageLocators.CONSTRUCTOR_HEAD)
+        assert self.find_element(MainPageLocators.CONSTRUCTOR_HEAD).text == 'Соберите бургер'
 
     @allure.step('Нажатие на кнопку "Лента заказов"')
     def click_on_orders_feed(self):
@@ -23,7 +23,7 @@ class MainPage(BasePage):
 
     @allure.step('Проверка что отображается раздел "Лента заказов"')
     def check_orders_feed_section(self):
-        self.find_element(MainPageLocators.ORDERS_FEED_HEAD)
+        assert self.find_element(MainPageLocators.ORDERS_FEED_HEAD).text == 'Лента заказов'
 
     @allure.step('Нажатие на ингредиент')
     def click_on_ingredient(self):
@@ -31,7 +31,7 @@ class MainPage(BasePage):
 
     @allure.step('Проверка что отображается всплывающее окно с деталями об ингредиенте')
     def check_ingredient_details_window(self):
-        self.find_element(MainPageLocators.INGREDIENT_DETAILS_HEAD)
+        assert self.find_element(MainPageLocators.INGREDIENT_DETAILS_HEAD).text == 'Детали ингредиента'
 
     @allure.step('Закрытие всплывающего окно с деталями об ингредиенте')
     def close_details_window(self):
@@ -39,7 +39,7 @@ class MainPage(BasePage):
 
     @allure.step('Проверка что всплывающее окно с деталями об ингредиенте закрыто')
     def check_close_ingredient_details_window(self):
-        self.element_is_not_displayed(MainPageLocators.INGREDIENT_DETAILS_HEAD)
+        assert self.element_is_not_displayed(MainPageLocators.INGREDIENT_DETAILS_HEAD)
 
     @allure.step('Добавление ингредиента в заказ')
     def add_ingredients_to_order(self):
@@ -55,7 +55,7 @@ class MainPage(BasePage):
 
     @allure.step('Проверка что  открылось окно об успешно оформленном заказе')
     def check_order_window(self):
-        self.find_element(MainPageLocators.ORDER_WINDOW)
+        assert self.find_element(MainPageLocators.ORDER_WINDOW).is_displayed()
 
     @allure.step('Нажатие на карточку заказа в Ленте заказов')
     def click_on_order_card(self):
@@ -63,7 +63,7 @@ class MainPage(BasePage):
 
     @allure.step('Проверка что  открылось окно с деталями о заказе')
     def check_order_details_window(self):
-        self.find_element(MainPageLocators.ORDER_DETAILS)
+        assert self.find_element(MainPageLocators.ORDER_DETAILS).is_displayed()
 
     @allure.step('Получение значения счетчика "Выполнено за всё время"')
     def get_count_all_time(self):

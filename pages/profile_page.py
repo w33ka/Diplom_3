@@ -9,7 +9,7 @@ from data import Urls
 class ProfilePage(BasePage):
     @allure.step('Проверка что открылась страница "Личный кабинет"')
     def check_profile_button(self):
-        self.find_element(ProfilePageLocators.PROFILE_BUTTON)
+        assert self.find_element(ProfilePageLocators.PROFILE_BUTTON).is_displayed()
 
     @allure.step('Нажатие на кнопку "История заказов"')
     def click_on_order_history_button(self):

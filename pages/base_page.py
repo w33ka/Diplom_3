@@ -30,7 +30,7 @@ class BasePage:
         return value
 
     def element_is_not_displayed(self, locator):
-        WebDriverWait(self.driver, 15).until(EC.invisibility_of_element_located(locator))
+        return WebDriverWait(self.driver, 15).until(EC.invisibility_of_element_located(locator))
 
     def get_current_url(self):
         return self.driver.current_url
